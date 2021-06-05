@@ -167,6 +167,36 @@ enum piv_alg {
 	PIV_ALG_ECCP384 = 0x14,
 
 	/*
+	 * Extension "cryptographic mechanism identifiers" for "OpenPIV",
+	 * as implemented e.g. in SoloKeys PIV.
+	 * RSA-3072 is listed as 0x05 in early SP 800-73.
+	 * There are also P-224, K-233, B-233, K-283, P-283.
+	 * P-521 is listed as 0x15 in GP ISO framework, which extends PIV.
+	 * RSA-4096 seems to have been considered but removed before allocating
+	 * a code point, and there is no gap for it.
+	 */
+	/* PIV_ALG_2DES = 0x01, */
+	/* PIV_ALG_2DES_CBC = 0x02, */
+	/* PIV_ALG_3DES_CBC = 0x04, */
+	PIV_ALG_RSA3072 = 0x05,
+	/* PIV_ALG_AES128_CBC = 0x09, */
+	/* PIV_ALG_AES192_CBC = 0x0B, */
+	/* PIV_ALG_AES256_CBC = 0x0D, */
+	/* PIV_ALG_ECCP224 = 0x0E, */
+	/* PIV_ALG_ECCK233 = 0x0F, */
+	/* PIV_ALG_ECCB233 = 0x10, */
+	/* PIV_ALG_ECCK283 = 0x12, */
+	/* PIV_ALG_ECCB283 = 0x13, */
+	EXT_ALG_ECCP521 = 0x15,
+	EXT_ALG_RSA4096 = 0xE0,
+	EXT_ALG_ED25519 = 0xE1,
+	EXT_ALG_X25519  = 0xE2,
+	EXT_ALG_ED448   = 0xE3,
+	EXT_ALG_X448    = 0xE4,
+	/* Meaning secp256k1 of cryptocurrency interest */
+	EXT_ALG_ECCK256 = 0xE5,
+
+	/*
 	 * Proprietary hack for Javacards running PivApplet -- they don't
 	 * support bare ECDSA so instead we have to give them the full input
 	 * data and they hash it on the card.
